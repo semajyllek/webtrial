@@ -1,77 +1,46 @@
 /**
- * Objection Engine: Logic for the WebTrial Practice Game
- * Derived from Oregon High School Mock Trial Rules of Evidence [cite: 8]
+ * Objection Engine: Case-Agnostic Legal Practice
+ * Rules sourced from Oregon High School Mock Trial Rules of Evidence
  */
 
-let currentScore = 0;
-let currentIndex = 0;
-let questions = [];
+const agnosticQuestions = [
+    { q: "Attorney: 'You're just lying because you hate my client, aren't you?'", a: "Argumentative", r: "Rule 38(1)" },
+    { q: "Witness: 'My neighbor told me he saw the car speed away.'", a: "Hearsay", r: "Rule 801" },
+    { q: "Attorney: 'What was the driver thinking when they hit the brakes?'", a: "Speculation", r: "Rule 602" },
+    { q: "Attorney: 'Isn't it true you were arrested for shoplifting ten years ago?'", a: "Rule 404: Character", r: "Rule 404" },
+    { q: "Witness: 'I really enjoy gardening on the weekends.' (In a trial about a bank robbery)", a: "Relevance", r: "Rule 401" },
+    { q: "Attorney (on Direct): 'You saw the defendant hold the gun, right?'", a: "Leading Question", r: "Rule 611" },
+    { q: "Witness: 'The weather was beautiful.' (When asked if they saw the crash happen)", a: "Non-Responsive", r: "Rule 38(5)" },
+    { q: "Witness: 'The victim screamed \"He has a knife!\" right as the door broke.'", a: "Hearsay Exception", r: "Rule 803(2)" },
+    { q: "Attorney: 'When did you stop stealing from your boss?' (No evidence of theft presented)", a: "Assuming Facts", r: "Rule 38(3)" },
+    { q: "Attorney: 'Tell the jury your life story starting from the day you were born.'", a: "Narrative", r: "Rule 38(4)" }
+];
 
-// Initialize the game by fetching the questions
-async function initObjectionGame() {
-    try {
-        const response = await fetch('data/practice_questions.json');
-        questions = await response.json();
-        currentScore = 0;
-        currentIndex = 0;
-        updateScoreUI();
-        showScenario();
-    } catch (error) {
-        console.error("Failed to load practice questions:", error);
-    }
+let score = 0;
+
+function initObjectionGame() {
+    score = 0;
+    document.getElementById('score').innerText = score;
+    nextScenario();
 }
 
-function showScenario() {
-    if (currentIndex >= questions.length) {
-        endGame();
-        return;
-    }
-
-    const q = questions[currentIndex];
-    const scenarioText = document.getElementById('scenario-text');
-    const optionsGrid = document.getElementById('options-grid');
-
-    scenarioText.innerText = q.scenario;
+function nextScenario() {
+    const q = agnosticQuestions[Math.floor(Math.random() * agnosticQuestions.length)];
+    document.getElementById('scenario-text').innerText = q.q;
     
-    // Standard set of objections allowed in the competition [cite: 1, 8]
-    const objectionTypes = [
-        "Hearsay", 
-        "Argumentative", 
-        "Speculation / Lack of Knowledge", 
-        "Rule 404: Character Evidence", 
-        "Rule 403: Unduly Prejudicial",
-        "Leading Question"
-    ];
-
-    optionsGrid.innerHTML = objectionTypes.map(opt => 
-        `<button class="game-btn" onclick="handleGuess('${opt}')">${opt}</button>`
+    const options = ["Hearsay", "Argumentative", "Speculation", "Rule 404: Character", "Relevance", "Leading Question", "Non-Responsive", "Hearsay Exception", "Assuming Facts", "Narrative"];
+    document.getElementById('options-grid').innerHTML = options.map(opt => 
+        `<button onclick="checkObjection('${opt}', '${q.a}', '${q.r}')">${opt}</button>`
     ).join('');
 }
 
-function handleGuess(choice) {
-    const q = questions[currentIndex];
-    const isCorrect = (choice === q.correct_objection);
-
-    if (isCorrect) {
-        currentScore += q.points;
-        alert(`CORRECT!\n\n${q.feedback}\n(See ${q.rule_reference})`);
+function checkObjection(guess, actual, rule) {
+    if(guess === actual) {
+        score += 10;
+        alert(`Correct! Identified ${actual} under ${rule}.`);
     } else {
-        alert(`INCORRECT.\n\nThe proper objection was: ${q.correct_objection}.\n\nReason: ${q.feedback}`);
+        alert(`Incorrect. The proper objection was ${actual}.`);
     }
-
-    updateScoreUI();
-    currentIndex++;
-    showScenario();
-}
-
-function updateScoreUI() {
-    const scoreElement = document.getElementById('score');
-    if (scoreElement) scoreElement.innerText = currentScore;
-}
-
-function endGame() {
-    const scenarioText = document.getElementById('scenario-text');
-    scenarioText.innerText = `Training Complete! Final Score: ${currentScore}`;
-    document.getElementById('options-grid').innerHTML = 
-        `<button onclick="initObjectionGame()">Restart Training</button>`;
+    document.getElementById('score').innerText = score;
+    nextScenario();
 }
