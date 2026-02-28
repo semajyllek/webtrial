@@ -4,69 +4,349 @@
     "scenario": "Attorney asks: 'You're just lying because you hate my client, aren't you?'",
     "correct": "Argumentative",
     "rule": "Rule 38(1)",
-    "feedback": "Attorneys shall not ask argumentative questions that badger the witness."
+    "feedback": "Attorneys shall not ask argumentative questions that badger or intimidate the witness rather than elicit facts."
   },
   {
     "id": 2,
     "scenario": "Witness: 'My neighbor told me he saw the car speed away from the scene.'",
     "correct": "Hearsay",
     "rule": "Rule 801",
-    "feedback": "This is an out-of-court statement offered for the truth of the matter."
+    "feedback": "This is an out-of-court statement (the neighbor's claim) offered for the truth of the matter asserted — that the car sped away."
   },
   {
     "id": 3,
     "scenario": "Attorney: 'What was the driver thinking when they decided to hit the brakes?'",
     "correct": "Speculation",
     "rule": "Rule 602",
-    "feedback": "A witness may not testify to a matter unless they have personal knowledge of it."
+    "feedback": "A witness may not testify to a matter unless they have personal knowledge of it. No one can know another person's internal thoughts."
   },
   {
     "id": 4,
-    "scenario": "Attorney: 'Isn't it true you were arrested for shoplifting ten years ago?'",
+    "scenario": "Attorney: 'Isn't it true that the defendant has a history of being aggressive and getting into fights?'",
     "correct": "Rule 404: Character Evidence",
     "rule": "Rule 404",
-    "feedback": "Character evidence is generally not admissible to prove a person acted in accordance with that trait."
+    "feedback": "Evidence of a person's character trait is generally not admissible to prove that on a particular occasion the person acted in accordance with that trait."
   },
   {
     "id": 5,
     "scenario": "Witness: 'I really enjoy gardening on the weekends.' (In a trial regarding a bank robbery)",
     "correct": "Relevance",
     "rule": "Rule 401",
-    "feedback": "Evidence must have a tendency to make a fact of consequence more or less probable."
+    "feedback": "Evidence must have a tendency to make a fact of consequence to the case more or less probable. The witness's gardening hobby has no bearing on the bank robbery."
   },
   {
     "id": 6,
     "scenario": "Attorney (on Direct Examination): 'You saw the defendant hold the gun, right?'",
     "correct": "Leading Question",
     "rule": "Rule 611",
-    "feedback": "Leading questions are generally not allowed on direct examination."
+    "feedback": "Leading questions suggest the desired answer within the question itself and are generally not allowed on direct examination of a friendly witness."
   },
   {
     "id": 7,
-    "scenario": "Witness: 'The weather was beautiful.' (When asked if they saw the crash happen)",
+    "scenario": "Witness: 'The weather was beautiful that day.' (When asked if they saw the crash happen)",
     "correct": "Non-Responsive",
     "rule": "Rule 38(5)",
-    "feedback": "The witness's answer fails to address the specific question asked."
+    "feedback": "The witness's answer does not address the specific question asked. The opposing attorney may move to strike the answer as non-responsive."
   },
   {
     "id": 8,
-    "scenario": "Witness: 'The victim screamed \"He has a knife!\" right as the door broke.'",
-    "correct": "Hearsay Exception",
+    "scenario": "Witness: 'The victim screamed \"He has a knife!\" right as the door broke open.'",
+    "correct": "Excited Utterance (Hearsay Exception)",
     "rule": "Rule 803(2)",
-    "feedback": "This is an Excited Utterance, made while under the stress of a startling event."
+    "feedback": "Although this is an out-of-court statement, it qualifies as an Excited Utterance — a statement made while the declarant was under the stress of a startling event. The spontaneity of the reaction is what makes it reliable enough to be excepted from the hearsay rule."
   },
   {
     "id": 9,
     "scenario": "Attorney: 'When did you stop stealing from your boss?' (No evidence of prior theft has been presented)",
     "correct": "Assuming Facts Not in Evidence",
     "rule": "Rule 38(3)",
-    "feedback": "The question includes facts that have not yet been proven in the trial."
+    "feedback": "The question presupposes that the witness was stealing — a fact that has not been established through evidence in the trial. This is sometimes called a 'loaded question.'"
   },
   {
     "id": 10,
-    "scenario": "Attorney: 'Tell the jury your life story starting from the day you were born.'",
+    "scenario": "Attorney: 'Tell the jury your entire life story starting from the day you were born.'",
     "correct": "Narrative",
     "rule": "Rule 38(4)",
-    "feedback": "Questions must be specific and not call for a broad, rambling narrative."
+    "feedback": "Questions must be specific enough to elicit focused answers. Overly broad questions that invite long, rambling responses are objectionable as calling for a narrative."
+  },
+  {
+    "id": 11,
+    "scenario": "Witness: 'The defendant's favorite color is blue.' (In a trial for assault)",
+    "correct": "Relevance",
+    "rule": "Rule 401",
+    "feedback": "Evidence must relate to a fact of consequence in the case. The defendant's favorite color has no tendency to make any element of an assault charge more or less probable."
+  },
+  {
+    "id": 12,
+    "scenario": "Witness: 'I know he was angry because his sister told me so.'",
+    "correct": "Hearsay",
+    "rule": "Rule 801",
+    "feedback": "This is an out-of-court statement (the sister's remark) offered to prove the truth of the matter asserted — that he was angry. The witness has no personal knowledge of his emotional state."
+  },
+  {
+    "id": 13,
+    "scenario": "Attorney: 'Isn't it true you're only here to help your friend get away with this crime?'",
+    "correct": "Argumentative",
+    "rule": "Rule 38(1)",
+    "feedback": "The attorney is making an accusation disguised as a question, intended to intimidate the witness rather than elicit factual testimony."
+  },
+  {
+    "id": 14,
+    "scenario": "Witness: 'The report I read said the car was traveling at 60 mph.'",
+    "correct": "Hearsay",
+    "rule": "Rule 801",
+    "feedback": "The witness is testifying to the contents of a report — an out-of-court statement — rather than to their own personal observation of the car's speed."
+  },
+  {
+    "id": 15,
+    "scenario": "Attorney: 'Is it true you've been divorced three times?' (In a trial for reckless driving)",
+    "correct": "Rule 403: Unduly Prejudicial",
+    "rule": "Rule 403",
+    "feedback": "Even if marginally relevant, the probative value of the witness's marital history is substantially outweighed by the danger of unfair prejudice in a reckless driving case."
+  },
+  {
+    "id": 16,
+    "scenario": "Witness: 'He always forgets to lock his front door.'",
+    "correct": "Rule 404: Character Evidence",
+    "rule": "Rule 404",
+    "feedback": "Evidence of a person's habitual carelessness is being used to suggest they acted the same way on the occasion in question. Character evidence is generally not admissible for this purpose."
+  },
+  {
+    "id": 17,
+    "scenario": "Attorney: 'Isn't it a fact that you were at the house at 5:00 PM?' (Asked on Direct Examination)",
+    "correct": "Leading Question",
+    "rule": "Rule 611",
+    "feedback": "Leading questions that suggest the answer are generally prohibited on direct examination. The phrase 'Isn't it a fact' signals that the attorney is feeding the answer to the witness."
+  },
+  {
+    "id": 18,
+    "scenario": "Witness: 'I think he might have been planning to leave the country.'",
+    "correct": "Speculation",
+    "rule": "Rule 602",
+    "feedback": "The witness is guessing about the defendant's internal intent rather than testifying to personally observed facts. Phrases like 'I think he might have' signal speculation."
+  },
+  {
+    "id": 19,
+    "scenario": "Attorney: 'Tell us everything that happened from the moment you woke up that day until you went to bed.'",
+    "correct": "Narrative",
+    "rule": "Rule 38(4)",
+    "feedback": "Questions should call for specific, focused answers to allow the opposing side to make timely objections. This open-ended question invites an extended, uninterrupted narrative."
+  },
+  {
+    "id": 20,
+    "scenario": "Witness: 'The sky was blue.' (When asked what color the traffic light was)",
+    "correct": "Non-Responsive",
+    "rule": "Rule 38(5)",
+    "feedback": "The witness failed to respond to the specific question asked about the traffic light. The opposing attorney may move to strike this answer."
+  },
+  {
+    "id": 21,
+    "scenario": "Attorney: 'Did you see the defendant pull the trigger after he shouted?' (No testimony has established the defendant shouted)",
+    "correct": "Assuming Facts Not in Evidence",
+    "rule": "Rule 38(3)",
+    "feedback": "The question embeds the unproven claim that the defendant shouted. Facts incorporated into a question must first be established through testimony or evidence."
+  },
+  {
+    "id": 22,
+    "scenario": "Witness: 'The bystander yelled \"He's got a gun!\" right before the shot went off.'",
+    "correct": "Excited Utterance (Hearsay Exception)",
+    "rule": "Rule 803(2)",
+    "feedback": "Although this is an out-of-court statement, it qualifies as an Excited Utterance — made while the declarant was under the stress of a startling event. The statement's spontaneity supports its reliability."
+  },
+  {
+    "id": 23,
+    "scenario": "Attorney: 'Why are you lying to this jury today?'",
+    "correct": "Argumentative",
+    "rule": "Rule 38(1)",
+    "feedback": "The attorney is not asking a genuine question but making an accusation. Argumentative questions are designed to make a point rather than elicit new factual information."
+  },
+  {
+    "id": 24,
+    "scenario": "Attorney: 'What does the contract say about the payment terms?' (The contract has not been admitted into evidence or shown to the witness)",
+    "correct": "Lack of Foundation",
+    "rule": "Rule 38(2)",
+    "feedback": "Before a witness can testify about the contents of a document, a proper foundation must be laid — the document should be marked, authenticated, and ideally admitted into evidence or at least shown to the witness."
+  },
+  {
+    "id": 25,
+    "scenario": "Attorney: 'Has the defendant ever been described by others as a mean person?'",
+    "correct": "Rule 404: Character Evidence",
+    "rule": "Rule 404",
+    "feedback": "This question seeks character evidence — testimony about the defendant's general disposition — to imply they acted in accordance with that trait on a specific occasion, which is generally inadmissible."
+  },
+  {
+    "id": 26,
+    "scenario": "Witness: 'The doctor's note said I had a concussion.'",
+    "correct": "Hearsay",
+    "rule": "Rule 801",
+    "feedback": "The witness is relaying the content of a written out-of-court statement (the doctor's note) to prove they had a concussion. The doctor would need to testify, or the note would need to qualify under a hearsay exception."
+  },
+  {
+    "id": 27,
+    "scenario": "Attorney: 'You were scared when the dog barked, weren't you?' (Asked on Direct Examination)",
+    "correct": "Leading Question",
+    "rule": "Rule 611",
+    "feedback": "This question tells the witness the expected answer ('you were scared') and is leading. On direct examination, the attorney should ask open-ended questions like 'How did you feel when the dog barked?'"
+  },
+  {
+    "id": 28,
+    "scenario": "Witness: 'Right after the accident, I told the paramedic that my chest was hurting badly.'",
+    "correct": "Then-Existing Condition (Hearsay Exception)",
+    "rule": "Rule 803(3)",
+    "feedback": "The witness is recounting an out-of-court statement they made describing a then-existing physical condition. Under Rule 803(3), statements of the declarant's then-existing physical or mental condition are excepted from the hearsay rule."
+  },
+  {
+    "id": 29,
+    "scenario": "Attorney: 'What did your brother think about the situation?'",
+    "correct": "Speculation",
+    "rule": "Rule 602",
+    "feedback": "A witness cannot know what another person was thinking. This question asks the witness to guess at someone else's mental state rather than testify to personally observed facts."
+  },
+  {
+    "id": 30,
+    "scenario": "Witness: 'I've never seen him act that way before.' (Offered to prove the defendant did not act aggressively)",
+    "correct": "Rule 404: Character Evidence",
+    "rule": "Rule 404",
+    "feedback": "This is an attempt to use character evidence — the defendant's typical behavior — to prove they did not act aggressively on a particular occasion, which is generally inadmissible under Rule 404."
+  },
+  {
+    "id": 31,
+    "scenario": "Attorney: 'Did you go to the store, and did you also see the defendant there, and what time was it?'",
+    "correct": "Compound Question",
+    "rule": "Rule 38(6)",
+    "feedback": "This question bundles multiple separate questions into one, making it confusing for the witness to answer and difficult for the record to reflect a clear response. Each question should be asked separately."
+  },
+  {
+    "id": 32,
+    "scenario": "Attorney: 'Can you tell the jury what the letter said?' (The original letter is available but has not been introduced)",
+    "correct": "Best Evidence Rule",
+    "rule": "Rule 1002",
+    "feedback": "When the contents of a writing are at issue, the original document (or a reliable duplicate) must be produced rather than relying on oral testimony about what it said. This is known as the Best Evidence Rule."
+  },
+  {
+    "id": 33,
+    "scenario": "Witness: 'As I watched the car run the red light, I said to my friend, \"That car just blew through the light.\"'",
+    "correct": "Present Sense Impression (Hearsay Exception)",
+    "rule": "Rule 803(1)",
+    "feedback": "This is a statement describing an event made while the declarant was perceiving it or immediately thereafter. Under Rule 803(1), present sense impressions are excepted from the hearsay rule because the immediacy reduces the risk of fabrication."
+  },
+  {
+    "id": 34,
+    "scenario": "Witness: 'The defendant told me at the bar, \"I'm the one who broke into that warehouse.\"'",
+    "correct": "Admission by Party-Opponent (Not Hearsay)",
+    "rule": "Rule 801(d)(2)",
+    "feedback": "A statement made by a party to the case and offered against that party is classified as an admission by a party-opponent. Under Rule 801(d)(2), such statements are not considered hearsay at all and are admissible."
+  },
+  {
+    "id": 35,
+    "scenario": "Attorney calls a seventh witness to testify that the traffic light was red — six prior witnesses have already confirmed the same fact.",
+    "correct": "Cumulative",
+    "rule": "Rule 403",
+    "feedback": "Under Rule 403, a court may exclude evidence if its probative value is substantially outweighed by needless presentation of cumulative evidence. Seven witnesses to the same undisputed fact wastes the court's time."
+  },
+  {
+    "id": 36,
+    "scenario": "Attorney (on Cross-Examination): 'Where did you go to college?' (Direct examination only covered events on the night of the incident)",
+    "correct": "Beyond the Scope",
+    "rule": "Rule 611(b)",
+    "feedback": "Cross-examination is generally limited to the subject matter of the direct examination and matters affecting witness credibility. Questions about unrelated topics go beyond the scope."
+  },
+  {
+    "id": 37,
+    "scenario": "Witness (a lay witness, not qualified as an expert): 'Based on the skid marks, the car was going at least 80 mph.'",
+    "correct": "Lay Opinion / Lack of Expert Qualification",
+    "rule": "Rule 701",
+    "feedback": "Under Rule 701, a lay witness may offer opinions only if they are rationally based on their perception and helpful to the jury. Estimating speed from skid marks requires specialized knowledge and is the province of an expert witness under Rule 702."
+  },
+  {
+    "id": 38,
+    "scenario": "Attorney: 'What did you tell your lawyer about the night of the incident?'",
+    "correct": "Privilege: Attorney-Client",
+    "rule": "Rule 501",
+    "feedback": "Communications between a client and their attorney made for the purpose of obtaining legal advice are protected by attorney-client privilege. The witness cannot be compelled to disclose them."
+  },
+  {
+    "id": 39,
+    "scenario": "Attorney: 'You weren't really paying attention that night, were you? You don't actually know what happened, do you?'",
+    "correct": "Compound Question",
+    "rule": "Rule 38(6)",
+    "feedback": "This contains two distinct questions — whether the witness was paying attention and whether they know what happened. Compound questions are objectionable because a single answer cannot clearly address both parts."
+  },
+  {
+    "id": 40,
+    "scenario": "Attorney: 'Describe the photograph to the jury.' (The photograph is available but has not been admitted into evidence)",
+    "correct": "Lack of Foundation",
+    "rule": "Rule 38(2)",
+    "feedback": "Before testimony about a photograph can be elicited, the photograph must be properly identified, authenticated, and admitted into evidence — or at minimum shown to the witness for identification."
+  },
+  {
+    "id": 41,
+    "scenario": "Witness: 'My wife told me she saw the defendant running from the building.'",
+    "correct": "Hearsay",
+    "rule": "Rule 801",
+    "feedback": "The witness is repeating an out-of-court statement made by the wife, offered to prove the defendant was running from the building. The spousal relationship does not create a hearsay exception."
+  },
+  {
+    "id": 42,
+    "scenario": "Attorney: 'Do you think the defendant is the kind of person who would commit fraud?'",
+    "correct": "Rule 404: Character Evidence",
+    "rule": "Rule 404",
+    "feedback": "This question directly asks the witness to testify about the defendant's character to suggest they are the type of person who would commit the charged offense, which is prohibited under Rule 404."
+  },
+  {
+    "id": 43,
+    "scenario": "Witness (a lay witness): 'In my medical opinion, the plaintiff's injury will require at least two years of physical therapy.'",
+    "correct": "Lay Opinion / Lack of Expert Qualification",
+    "rule": "Rule 701",
+    "feedback": "Offering a 'medical opinion' about prognosis and treatment requires specialized medical knowledge. A lay witness has not been qualified as an expert and cannot offer such testimony under Rule 701."
+  },
+  {
+    "id": 44,
+    "scenario": "Attorney: 'What did your spouse say to you about the defendant's finances?' (In a jurisdiction recognizing spousal privilege)",
+    "correct": "Privilege: Spousal Communication",
+    "rule": "Rule 501",
+    "feedback": "Confidential communications between spouses during the marriage are generally protected by spousal communication privilege. The witness may not be compelled to disclose what their spouse told them in confidence."
+  },
+  {
+    "id": 45,
+    "scenario": "Witness: 'I saw him put something in his pocket, and I just knew he was stealing.' (No other evidence of theft)",
+    "correct": "Speculation",
+    "rule": "Rule 602",
+    "feedback": "The witness observed someone put something in their pocket but is speculating about the intent behind the action. Without personal knowledge that a theft occurred, 'I just knew he was stealing' is conjecture, not fact."
+  },
+  {
+    "id": 46,
+    "scenario": "Attorney: 'Did your client discuss the settlement offer with you during your meeting last Thursday?' (Asked to opposing counsel on the stand)",
+    "correct": "Privilege: Attorney-Client",
+    "rule": "Rule 501",
+    "feedback": "This question seeks to reveal the content of a confidential communication between an attorney and their client, which is protected by attorney-client privilege."
+  },
+  {
+    "id": 47,
+    "scenario": "Attorney: 'Isn't it true that the intersection is dangerous and that the city should have installed a traffic light there?' (Asked on Direct Examination)",
+    "correct": "Compound Question",
+    "rule": "Rule 38(6)",
+    "feedback": "This question asks the witness to address two separate issues — whether the intersection is dangerous and whether the city should have installed a traffic light. Each claim should be addressed in a separate question."
+  },
+  {
+    "id": 48,
+    "scenario": "Witness: 'As I was watching the fender bender happen, I muttered to myself, \"That truck just rear-ended that sedan.\"'",
+    "correct": "Present Sense Impression (Hearsay Exception)",
+    "rule": "Rule 803(1)",
+    "feedback": "This is a statement made while the declarant was perceiving the event. Under Rule 803(1), present sense impressions are excepted from the hearsay rule because the near-simultaneous timing leaves little opportunity for deliberate fabrication."
+  },
+  {
+    "id": 49,
+    "scenario": "Witness: 'At the meeting, the CEO said, \"We knew the product was defective before we shipped it.\"' (The company is the defendant)",
+    "correct": "Admission by Party-Opponent (Not Hearsay)",
+    "rule": "Rule 801(d)(2)",
+    "feedback": "A statement by an agent or employee of a party, made within the scope of that relationship and concerning a matter within the scope of their duties, qualifies as an admission by a party-opponent and is not hearsay under Rule 801(d)(2)."
+  },
+  {
+    "id": 50,
+    "scenario": "Attorney presents graphic, bloody photographs of the victim's injuries when a medical examiner's clinical testimony has already clearly established the cause of death.",
+    "correct": "Rule 403: Unduly Prejudicial",
+    "rule": "Rule 403",
+    "feedback": "Under Rule 403, evidence may be excluded if its probative value is substantially outweighed by the danger of unfair prejudice. When the cause of death is already established, graphic photographs may serve primarily to inflame the jury's emotions rather than prove a disputed fact."
   }
 ]
