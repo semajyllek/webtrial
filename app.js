@@ -25,21 +25,39 @@ function renderTimeline() {
     `).join('');
 }
 
+
 function renderStrategy() {
     const tree = document.getElementById('argument-tree');
-    let html = "<h2>STRATEGY</h2>";
-    
-    const charges = caseData.charges || [];
-    const stipulations = caseData.stipulations || [];
+    let html = "<h2>ARGUMENT BATTLE MAP</h2>";
 
-    if (charges.length) {
-        html += charges.map(c => `<details><summary>${c.offense}</summary><p>${c.elements}</p></details>`).join('');
-    }
-    if (stipulations.length) {
-        html += stipulations.map((s, i) => `<div class="stipulation-item">${i+1}. ${s}</div>`).join('');
-    }
+    const branches = [
+        {
+            charge: "MANSLAUGHTER (RECKLESSNESS)",
+            pro: "Taylor ignored Carmen's direct medical warning.",
+            con: "Tradition was alcohol-free; reaction was unforeseeable."
+        },
+        {
+            charge: "HAZING (COMPulsion)",
+            pro: "Water was required for ESE membership status.",
+            con: "Jessica was 'clowning around' and voluntary.",
+            rebuttal: "STATUTORY BAR: Consent is not a defense (ORS 163.197)."
+        }
+    ];
+
+    html += branches.map(b => `
+        <details style="margin-bottom:15px; border-left: 2px solid #000; padding-left:10px;">
+            <summary style="font-weight:bold; cursor:pointer;">${b.charge}</summary>
+            <div style="margin-top:5px; font-size:12px;">
+                <p><strong>PROSECUTION:</strong> ${b.pro}</p>
+                <p><strong>DEFENSE COUNTER:</strong> ${b.con}</p>
+                ${b.rebuttal ? `<p style="color:#666; font-style:italic;"><strong>REBUTTAL:</strong> ${b.rebuttal}</p>` : ''}
+            </div>
+        </details>
+    `).join('');
+
     tree.innerHTML = html;
 }
+
 
 function selectWitness(name) {
     caseData.selectedWitness = name;
