@@ -1,42 +1,72 @@
 [
   {
     "id": 1,
-    "scenario": "Prosecution asks Taylor Durden: 'You didn't care about Jessica's safety; you just wanted to top Alex's record as Pledge Master, didn't you?'",
-    "correct_objection": "Argumentative",
-    "rule_reference": "Rule 38(1)",
-    [cite_start]"feedback": "Attorneys shall not ask argumentative questions that badger the witness[cite: 1].",
-    "points": 10
+    "scenario": "Attorney asks: 'You're just lying because you hate my client, aren't you?'",
+    "correct": "Argumentative",
+    "rule": "Rule 38(1)",
+    "feedback": "Attorneys shall not ask argumentative questions that badger the witness."
   },
   {
     "id": 2,
-    "scenario": "Sgt. Knight testifies: 'Carmen Cordova told me she quit the game because her professor said drinking that much water was harmful.'",
-    "correct_objection": "Hearsay",
-    "rule_reference": "Rule 801",
-    [cite_start]"feedback": "This is an out-of-court statement offered for the truth of the matter[cite: 4, 10].",
-    "points": 15
+    "scenario": "Witness: 'My neighbor told me he saw the car speed away from the scene.'",
+    "correct": "Hearsay",
+    "rule": "Rule 801",
+    "feedback": "This is an out-of-court statement offered for the truth of the matter."
   },
   {
     "id": 3,
-    "scenario": "Shawn Boyd testifies: 'Jessica was just acting like a clown to get attention when she collapsed.'",
-    "correct_objection": "Speculation / Lack of Personal Knowledge",
-    "rule_reference": "Rule 602",
-    "feedback": "A witness may not testify to matters unless they have personal knowledge. [cite_start]Boyd cannot know Jessica's internal intent[cite: 8].",
-    "points": 10
+    "scenario": "Attorney: 'What was the driver thinking when they decided to hit the brakes?'",
+    "correct": "Speculation",
+    "rule": "Rule 602",
+    "feedback": "A witness may not testify to a matter unless they have personal knowledge of it."
   },
   {
     "id": 4,
-    "scenario": "Defense asks Sgt. Knight: 'Is it true you were kicked out of ESE because a member accused you of cheating on finals?'",
-    "correct_objection": "Rule 404: Character Evidence",
-    "rule_reference": "Rule 404",
-    [cite_start]"feedback": "Evidence of a person's character trait is generally not admissible to prove they acted in accordance with it[cite: 8].",
-    "points": 10
+    "scenario": "Attorney: 'Isn't it true you were arrested for shoplifting ten years ago?'",
+    "correct": "Rule 404: Character Evidence",
+    "rule": "Rule 404",
+    "feedback": "Character evidence is generally not admissible to prove a person acted in accordance with that trait."
   },
   {
     "id": 5,
-    "scenario": "Dr. Chessler testifies: 'Dr. Jackson is only here because he makes $200,000 a year as a hired gun.'",
-    "correct_objection": "Rule 403: Unduly Prejudicial",
-    "rule_reference": "Rule 403",
-    [cite_start]"feedback": "The probative value of the 'hired gun' label is substantially outweighed by the danger of unfair prejudice[cite: 8].",
-    "points": 15
+    "scenario": "Witness: 'I really enjoy gardening on the weekends.' (In a trial regarding a bank robbery)",
+    "correct": "Relevance",
+    "rule": "Rule 401",
+    "feedback": "Evidence must have a tendency to make a fact of consequence more or less probable."
+  },
+  {
+    "id": 6,
+    "scenario": "Attorney (on Direct Examination): 'You saw the defendant hold the gun, right?'",
+    "correct": "Leading Question",
+    "rule": "Rule 611",
+    "feedback": "Leading questions are generally not allowed on direct examination."
+  },
+  {
+    "id": 7,
+    "scenario": "Witness: 'The weather was beautiful.' (When asked if they saw the crash happen)",
+    "correct": "Non-Responsive",
+    "rule": "Rule 38(5)",
+    "feedback": "The witness's answer fails to address the specific question asked."
+  },
+  {
+    "id": 8,
+    "scenario": "Witness: 'The victim screamed \"He has a knife!\" right as the door broke.'",
+    "correct": "Hearsay Exception",
+    "rule": "Rule 803(2)",
+    "feedback": "This is an Excited Utterance, made while under the stress of a startling event."
+  },
+  {
+    "id": 9,
+    "scenario": "Attorney: 'When did you stop stealing from your boss?' (No evidence of prior theft has been presented)",
+    "correct": "Assuming Facts Not in Evidence",
+    "rule": "Rule 38(3)",
+    "feedback": "The question includes facts that have not yet been proven in the trial."
+  },
+  {
+    "id": 10,
+    "scenario": "Attorney: 'Tell the jury your life story starting from the day you were born.'",
+    "correct": "Narrative",
+    "rule": "Rule 38(4)",
+    "feedback": "Questions must be specific and not call for a broad, rambling narrative."
   }
 ]
