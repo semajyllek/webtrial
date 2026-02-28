@@ -1,0 +1,20 @@
+:root {
+    --bg: #ffffff; --sidebar: #f8f9fa; --border: #d1d5db;
+    --text: #1a1a1a; --accent: #0056b3; --highlight: #f0f7ff;
+}
+
+body {
+    margin: 0; display: grid; grid-template-columns: 280px 1fr 380px;
+    height: 100vh; font-family: sans-serif; color: var(--text);
+}
+
+section { overflow-y: auto; padding: 20px; border-right: 1px solid var(--border); }
+
+.witness-item { padding: 10px; cursor: pointer; border-left: 3px solid transparent; }
+.witness-item.active { background: var(--highlight); border-left-color: var(--accent); }
+
+.timeline-item { border-left: 2px solid var(--border); padding: 0 0 20px 15px; position: relative; }
+.timeline-item.highlight { background: var(--highlight); border-left-color: var(--accent); }
+
+.game-container { margin-top: 40px; padding: 15px; background: #eee; border-radius: 8px; }
+#options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }

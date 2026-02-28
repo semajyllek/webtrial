@@ -1,0 +1,104 @@
+{
+  "caseMetadata": {
+    "caseName": "State of Oregon v. Taylor Durden",
+    "caseNumber": "12CR3456",
+    "court": "Circuit Court of the State of Oregon, Chinook County",
+    "incidentDate": "August 25, 2018",
+    "location": "313 Salmon Street, Green Valley (ESE House)"
+  },
+  "charges": [
+    {
+      "count": 1,
+      "offense": "Manslaughter in the Second Degree (ORS 163.125)",
+      "class": "Class B Felony",
+      "elements": "Recklessly causing the death of Jessica Bateson during the commission of hazing[cite: 157, 159]."
+    },
+    {
+      "count": 2,
+      "offense": "Hazing (ORS 163.197)",
+      "class": "Class B violation",
+      "elements": "Intentionally compelling a victim to engage in acts with unreasonable risk of harm as a condition of membership[cite: 161, 163]."
+    }
+  ],
+  "stipulations": [
+    "The death of Jessica Bateson occurred on August 25, 2018[cite: 184].",
+    "Defendant Taylor Durden was over age 21 at the time of the incident[cite: 185].",
+    "Carmen Cordova and the victim's brother, Colt Bateson, are unavailable (deceased/deployed)[cite: 186, 187].",
+    "All 14 exhibits are authentic; chain of custody and signatures are not in dispute[cite: 189, 190, 191].",
+    "Consent of the person hazed is NOT a defense[cite: 313, 2386]."
+  ],
+  "witnesses": {
+    "Sgt. Chris Knight": {
+      "side": "Prosecution",
+      "role": "Investigating Officer",
+      "notes": "13-year veteran. Former ESE pledge rejected for alleged cheating[cite: 376, 388, 389]. Initially saw no criminal conduct until the autopsy ruling[cite: 418, 458].",
+      "crossExam": "Grudge against ESE; failed to secure the scene immediately[cite: 389, 466]."
+    },
+    "Dr. Jaden Chessler": {
+      "side": "Prosecution",
+      "role": "Medical Examiner",
+      "notes": "Deputy State Medical Examiner. Board certified in anatomical pathology[cite: 578, 579]. Ruled death a homicide via acute hyponatremia[cite: 593, 628].",
+      "crossExam": "Lack of experience (first hyponatremia case); personal bias against Dr. Jackson[cite: 598, 633, 634]."
+    },
+    "Alex Richards": {
+      "side": "Prosecution",
+      "role": "ESE President",
+      "notes": "4.0 GPA senior. Called 911[cite: 713, 716]. Granted immunity in exchange for testimony[cite: 469, 786]. Claims Durden pushed pledges too far[cite: 739].",
+      "crossExam": "Testifying to avoid personal liability; sanctioned similar games as Pledge Master previously[cite: 737, 785]."
+    },
+    "Taylor Durden": {
+      "side": "Defense",
+      "role": "Defendant / Pledge Master",
+      "notes": "Business senior. Denies hazing; claims Water Jeopardy was a safe, alcohol-free tradition[cite: 854, 869, 898]. Used a 'counting' system for penalties[cite: 946].",
+      "crossExam": "Ignored Carmen Cordova's medical warning; increased the difficulty of the 'Pledge Olympics'[cite: 739, 954]."
+    },
+    "Dr. Ahsan Jackson": {
+      "side": "Defense",
+      "role": "Expert Pathologist",
+      "notes": "Former director of the 'Body Farm'[cite: 1072]. Argues hypothyroidism and medical negligence were the true causes[cite: 1086, 1113].",
+      "crossExam": "Paid $200k/year as an expert witness; personal bias against Dr. Chessler[cite: 1075, 1109]."
+    },
+    "Shawn Boyd": {
+      "side": "Defense",
+      "role": "ESE Member",
+      "notes": "Friend of Durden. Claims Jessica was 'being a clown' and could have quit[cite: 1200, 1230, 1237].",
+      "crossExam": "Close friendship with defendant; believes Alex Richards is scapegoating Durden[cite: 1200, 1257]."
+    }
+  },
+  "timeline": [
+    {
+      "time": "2018-08-25T16:00",
+      "event": "Water Jeopardy begins in ESE basement. Pledges penalized with water consumption[cite: 749, 944].",
+      "evidence": "Exhibit 12"
+    },
+    {
+      "time": "2018-08-25T17:06",
+      "event": "911 call placed by Alex Richards reporting Jessica Bateson is unconscious[cite: 1294, 1299].",
+      "evidence": "Exhibit 1"
+    },
+    {
+      "time": "2018-08-25T17:27",
+      "event": "Sgt. Knight arrives on scene; EMS transports victim to hospital[cite: 379, 1347].",
+      "evidence": "Exhibits 1, 2"
+    },
+    {
+      "time": "2018-08-25T17:50",
+      "event": "Victim arrives at ER in unresponsive state with fixed/dilated pupils[cite: 1762, 1776].",
+      "evidence": "Exhibit 4"
+    },
+    {
+      "time": "2018-08-25T18:40",
+      "event": "Time of Death called after resuscitation efforts fail[cite: 585, 1782].",
+      "evidence": "Exhibits 4, 13"
+    },
+    {
+      "time": "2018-08-27T10:15",
+      "event": "Autopsy performed; confirms brain stem swelling and distended bladder[cite: 1818, 1873, 1875].",
+      "evidence": "Exhibit 5"
+    }
+  ],
+  "legalElements": {
+    "Manslaughter_2": "Culpable mental state: Recklessly (consciously disregarding a gross risk)[cite: 304, 305].",
+    "Hazing": "Culpable mental state: Intentionally. Elements: Compelling consumption of liquid that adversely affects physical health[cite: 309, 318]."
+  }
+}

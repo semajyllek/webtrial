@@ -1,0 +1,66 @@
+{
+  "timeline": [
+    {
+      "date": "2026-01-10T17:45",
+      "desc": "Victim (Elena Vance) leaves her law firm. Security footage shows her checking her watch and looking distressed.",
+      "link": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Placeholder_view_vector.svg",
+      "witness": "Officer Miller"
+    },
+    {
+      "date": "2026-01-10T18:15",
+      "desc": "Witness reports hearing a loud argument at the Vance residence between a male and female voice.",
+      "link": "",
+      "witness": "Mrs. Gable (Neighbor)"
+    },
+    {
+      "date": "2026-01-10T18:40",
+      "desc": "Defendant's car (Black sedan) captured by a neighbor's 'Ring' camera speeding away from the scene.",
+      "link": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Placeholder_view_vector.svg",
+      "witness": "Officer Miller"
+    },
+    {
+      "date": "2026-01-10T19:00",
+      "desc": "Medical Examiner's estimated Time of Death. Blunt force trauma to the occipital region.",
+      "link": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "witness": "Dr. Aris (Medical Examiner)"
+    },
+    {
+      "date": "2026-01-12T09:00",
+      "desc": "Defendant arrested at a local motel. In possession of a passport and $10,000 in cash.",
+      "link": "",
+      "witness": "Detective Vance"
+    }
+  ],
+  "arguments": [
+    {
+      "title": "Motive: Impending Divorce & Life Insurance",
+      "notes": "The defendant was about to be served divorce papers which would have triggered a pre-nuptial 'infidelity clause' stripping him of assets.",
+      "obj": ""
+    },
+    {
+      "title": "The 'Diner Alibi' is Fabricated",
+      "notes": "Defendant claims he was at 'The Greasy Spoon' during the murder, but the waitress does not remember him and security footage is 'missing' for that hour.",
+      "obj": "Speculation"
+    },
+    {
+      "title": "Introduction of Prior Bad Acts",
+      "notes": "Attempt to bring in the 2022 assault charge to show a pattern of domestic violence.",
+      "obj": "Prejudicial"
+    }
+  ],
+  "witnesses": {
+    "Officer Miller": {
+      "notes": "1. Confirm the timestamp on the CCTV footage.\n2. Was the driver's face visible in the Ring camera footage?\n3. Describe the weather conditions—did it affect visibility?"
+    },
+    "Mrs. Gable (Neighbor)": {
+      "notes": "1. How far is your house from the victim's?\n2. You mentioned an argument—could you identify the specific words used?\n3. Cross-exam prep: Point out she wears heavy-duty hearing aids."
+    },
+    "Dr. Aris (Medical Examiner)": {
+      "notes": "1. Establish the TOD window. Could it have been as late as 8:30 PM?\n2. Describe the murder weapon based on the wound pattern."
+    },
+    "Detective Vance": {
+      "notes": "1. Why was the motel under surveillance?\n2. Describe the defendant's reaction when the $10k cash was found."
+    }
+  },
+  "selectedWitness": null
+}

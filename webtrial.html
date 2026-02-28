@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTrial | Trial Ledger</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --sidebar: #f8f9fa;
+            --border: #d1d5db;
+            --text: #1a1a1a;
+            --accent: #0056b3;
+            --highlight-bg: #f0f7ff;
+            --muted: #666;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: grid;
+            grid-template-columns: 280px 1fr 380px;
+            height: 100vh;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        section { overflow-y: auto; padding: 20px; border-right: 1px solid var(--border); }
+        .preview-pane { background: #fdfdfd; border-right: none; display: flex; flex-direction: column; }
+        
+        h2 { 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: var(--muted); 
+            margin: 20px 0 10px; 
+            border-bottom: 1px solid var(--border); 
+            padding-bottom: 5px;
+        }
+
+        .witness-item { 
+            padding: 10px; 
+            cursor: pointer; 
+            border-radius: 4px; 
+            margin-bottom: 4px; 
+            font-size: 14px; 
+            border-left: 3px solid transparent;
+        }
+        .witness-item.active { 
+            background: var(--highlight-bg); 
+            color: var(--accent); 
+            font-weight: bold; 
+            border-left-color: var(--accent);
+        }
+
+        .timeline-item { border-left: 2px solid var(--border); padding: 0 0 20px 15px; position: relative; transition: 0.3s; }
+        .timeline-item.highlight { border-left-color: var(--accent); background: var(--highlight-bg); }
+        .timeline-item::before { 
+            content: ''; position: absolute; left: -7px; top: 0; 
+            width: 10px; height: 10px; background: white; 
+            border: 2px solid var(--border); border-radius: 50%; 
+        }
+        .ev-link { color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 12px; }
+
+        #cross-exam-notes { 
+            width: 100%; height: 200px; margin-top: 10px; 
+            font-family: inherit; padding: 12px; box-sizing: border-box; 
+            border: 1px solid var(--border); border-radius: 4px; line-height: 1.5;
+        }
+        iframe { flex-grow: 1; width: 100%; border: 1px solid var(--border); background: white; margin-top: 10px; border-radius: 4px; }
+        
+        .toolbar { display: flex; gap: 8px; margin-bottom: 20px; }
+        button { 
+            cursor: pointer; padding: 8px 12px; font-size: 12px; 
+            border: 1px solid var(--border); border-radius: 4px; background: white; 
+        }
+        .objection { font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 3px; background: #eee; margin-left: 8px; color: #444; }
+
+        @media print {
+            .sidebar, .toolbar, button, #cross-exam-notes { display: none !important; }
+            body { display: block; }
+            details { display: block !important; border: none !important; }
+        }
+
+        dialog { border: none; border-radius: 8px; padding: 20px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        input, textarea, select { width: 100%; margin: 8px 0 15px; padding: 10px; border: 1px solid var(--border); border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <section class="sidebar">
+        <h2>Witnesses</h2>
+        <div id="witness-list"></div>
+        <button onclick="addWitnessPrompt()" style="width:100%;">+ Add Witness</button>
+
+        <h2>Strategy & Arguments</h2>
+        <div id="argument-tree"></div>
+        <button onclick="document.getElementById('arg-modal').showModal()" style="width:100%;">+ New Argument</button>
+    </section>
+
+    <section>
+        <h2>Case Timeline</h2>
+        <div class="toolbar">
+            <button onclick="document.getElementById('evid-modal').showModal()" style="background: var(--accent); color: white; border: none;">+ Add Event</button>
+            <button onclick="exportCase()">💾 Export Case</button>
+            <button onclick="document.getElementById('file-input').click()">📂 Import JSON</button>
+            <input type="file" id="file-input" style="display:none" onchange="importCase(event)">
+        </div>
+        <div id="timeline-view"></div>
+    </section>
+
+    <section class="preview-pane">
+        <div id="cross-exam-section" style="display:none;">
+            <h2 id="cross-header">Cross-Examination</h2>
+            <textarea id="cross-exam-notes" placeholder="Type questions..." oninput="updateWitnessNotes(this.value)"></textarea>
+        </div>
+        
+        <h2>Evidence Resolver</h2>
+        <div id="status" style="font-size: 11px; color: var(--muted); margin-bottom: 5px;">Select [View Evidence] to resolve document.</div>
+        <iframe id="viewer" name="viewer" src="about:blank"></iframe>
+    </section>
+
+    <dialog id="evid-modal">
+        <form method="dialog">
+            <h3>Add Fact</h3>
+            <input type="datetime-local" id="ev-date">
+            <textarea id="ev-desc" placeholder="Description"></textarea>
+            <input type="text" id="ev-link" placeholder="Evidence URL">
+            <input type="text" id="ev-witness" placeholder="Witness Name">
+            <div style="display:flex; gap:10px;">
+                <button onclick="addTimeline()" style="flex:1; background: var(--accent); color: white;">Save</button>
+                <button type="button" onclick="this.closest('dialog').close()" style="flex:1;">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="arg-modal">
+        <form method="dialog">
+            <h3>New Argument</h3>
+            <input type="text" id="arg-title" placeholder="Title">
+            <select id="arg-obj">
+                <option value="">No Objection</option>
+                <option value="Hearsay">Hearsay</option>
+                <option value="Speculation">Speculation</option>
+                <option value="Prejudicial">Prejudicial</option>
+            </select>
+            <div style="display:flex; gap:10px;">
+                <button onclick="addArgument()" style="flex:1; background: var(--accent); color: white;">Save</button>
+                <button type="button" onclick="this.closest('dialog').close()" style="flex:1;">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script>
+        let caseData = { timeline: [], arguments: [], witnesses: {}, selectedWitness: null };
+
+        function render() {
+            // 1. Render Witnesses
+            const wList = document.getElementById('witness-list');
+            const witnesses = caseData.witnesses || {};
+            wList.innerHTML = Object.keys(witnesses).map(w => 
+                `<div class="witness-item ${caseData.selectedWitness === w ? 'active' : ''}" onclick="selectWitness('${w}')">• ${w}</div>`
+            ).join('');
+
+            // 2. Render Timeline (Universal Keys)
+            const tlView = document.getElementById('timeline-view');
+            const timeline = caseData.timeline || [];
+            tlView.innerHTML = timeline.sort((a,b) => new Date(a.date || a.time) - new Date(b.date || b.time)).map(item => {
+                const description = item.desc || item.event || "No description";
+                const displayDate = (item.date || item.time || "").replace('T', ' ');
+                const evidenceLink = item.evidence || item.link || "";
+                
+                return `
+                    <div class="timeline-item ${caseData.selectedWitness === item.witness ? 'highlight' : ''}" data-witness="${item.witness}">
+                        <div style="font-weight:bold; font-size:12px; color:var(--accent);">${displayDate}</div>
+                        <div style="font-size:14px; margin: 4px 0;">${description}</div>
+                        ${evidenceLink ? `<span class="ev-link" onclick="document.getElementById('viewer').src='${evidenceLink}'">[View Evidence]</span>` : ''}
+                        ${item.witness ? `<div style="font-size:10px; color:#888; margin-top:4px;">Witness: ${item.witness}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+
+            // 3. Render Arguments (Universal Keys)
+            const al = document.getElementById('argument-tree');
+            const args = caseData.arguments || caseData.charges || [];
+            al.innerHTML = args.map(a => `
+                <details style="margin-bottom:8px; font-size:14px; border-bottom:1px solid #eee; padding-bottom:5px;">
+                    <summary style="cursor:pointer;">${a.title || a.offense} ${a.obj || a.class ? `<span class="objection">${a.obj || a.class}</span>` : ''}</summary>
+                    <div style="padding:10px; color:#555; font-size:13px;">${a.notes || a.elements || ""}</div>
+                </details>
+            `).join('');
+        }
+
+        function selectWitness(name) {
+            caseData.selectedWitness = name;
+            document.getElementById('cross-exam-section').style.display = 'block';
+            document.getElementById('cross-header').innerText = "Cross-Exam: " + name;
+            document.getElementById('cross-exam-notes').value = caseData.witnesses[name].notes || "";
+            render();
+        }
+
+        function updateWitnessNotes(val) {
+            if(caseData.selectedWitness) caseData.witnesses[caseData.selectedWitness].notes = val;
+        }
+
+        function addTimeline() {
+            caseData.timeline.push({
+                date: document.getElementById('ev-date').value,
+                desc: document.getElementById('ev-desc').value,
+                link: document.getElementById('ev-link').value,
+                witness: document.getElementById('ev-witness').value
+            });
+            render();
+        }
+
+        function addArgument() {
+            caseData.arguments.push({
+                title: document.getElementById('arg-title').value,
+                obj: document.getElementById('arg-obj').value
+            });
+            render();
+        }
+
+        function exportCase() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(caseData));
+            const dl = document.createElement('a');
+            dl.setAttribute("href", dataStr);
+            dl.setAttribute("download", "webtrial_case.json");
+            dl.click();
+        }
+
+        function importCase(e) {
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                try {
+                    const imported = JSON.parse(ev.target.result);
+                    caseData = imported;
+                    render();
+                } catch (err) { alert("Invalid JSON file."); }
+            };
+            reader.readAsText(e.target.files[0]);
+        }
+
+        function addWitnessPrompt() {
+            const name = prompt("Witness Name:");
+            if(name) {
+                if(!caseData.witnesses) caseData.witnesses = {};
+                caseData.witnesses[name] = { notes: "" };
+                render();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTrial | Digital Briefcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="sidebar">
+        <h2>Witnesses</h2>
+        <div id="witness-list"></div>
+        <button onclick="addWitnessPrompt()">+ Add Witness</button>
+        <h2>Strategy & Arguments</h2>
+        <div id="argument-tree"></div>
+    </section>
+
+    <section class="main-workspace">
+        <h2>Case Timeline</h2>
+        <div class="toolbar">
+            <button onclick="document.getElementById('file-input').click()">📂 Import JSON</button>
+            <input type="file" id="file-input" style="display:none" onchange="importCase(event)">
+            <button onclick="exportCase()">💾 Export Case</button>
+        </div>
+        <div id="timeline-view"></div>
+        
+        <div id="game-area" class="game-container">
+            <h2>Objection Training (Score: <span id="score">0</span>)</h2>
+            <p id="scenario-text">Load a case to begin training.</p>
+            <div id="options-grid"></div>
+        </div>
+    </section>
+
+    <section class="preview-pane">
+        <div id="cross-exam-section" style="display:none;">
+            <h2 id="cross-header">Cross-Examination</h2>
+            <textarea id="cross-exam-notes" oninput="updateWitnessNotes(this.value)"></textarea>
+        </div>
+        <h2>Evidence Resolver</h2>
+        <iframe id="viewer" name="viewer" src="about:blank"></iframe>
+    </section>
+
+    <script src="app.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

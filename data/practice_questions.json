@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "scenario": "Prosecution asks Taylor Durden: 'You didn't care about Jessica's safety; you just wanted to top Alex's record as Pledge Master, didn't you?'",
+    "correct_objection": "Argumentative",
+    "rule_reference": "Rule 38(1)",
+    [cite_start]"feedback": "Attorneys shall not ask argumentative questions that badger the witness[cite: 1].",
+    "points": 10
+  },
+  {
+    "id": 2,
+    "scenario": "Sgt. Knight testifies: 'Carmen Cordova told me she quit the game because her professor said drinking that much water was harmful.'",
+    "correct_objection": "Hearsay",
+    "rule_reference": "Rule 801",
+    [cite_start]"feedback": "This is an out-of-court statement offered for the truth of the matter[cite: 4, 10].",
+    "points": 15
+  },
+  {
+    "id": 3,
+    "scenario": "Shawn Boyd testifies: 'Jessica was just acting like a clown to get attention when she collapsed.'",
+    "correct_objection": "Speculation / Lack of Personal Knowledge",
+    "rule_reference": "Rule 602",
+    "feedback": "A witness may not testify to matters unless they have personal knowledge. [cite_start]Boyd cannot know Jessica's internal intent[cite: 8].",
+    "points": 10
+  },
+  {
+    "id": 4,
+    "scenario": "Defense asks Sgt. Knight: 'Is it true you were kicked out of ESE because a member accused you of cheating on finals?'",
+    "correct_objection": "Rule 404: Character Evidence",
+    "rule_reference": "Rule 404",
+    [cite_start]"feedback": "Evidence of a person's character trait is generally not admissible to prove they acted in accordance with it[cite: 8].",
+    "points": 10
+  },
+  {
+    "id": 5,
+    "scenario": "Dr. Chessler testifies: 'Dr. Jackson is only here because he makes $200,000 a year as a hired gun.'",
+    "correct_objection": "Rule 403: Unduly Prejudicial",
+    "rule_reference": "Rule 403",
+    [cite_start]"feedback": "The probative value of the 'hired gun' label is substantially outweighed by the danger of unfair prejudice[cite: 8].",
+    "points": 15
+  }
+]
